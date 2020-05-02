@@ -1,0 +1,14 @@
+{% extends 'clog/base2.html' %}
+{% block content %}
+    {% for lost in losts %}
+        <div class="post">
+            <h2><a href="">{{ lost.Name }}</a></h2>
+            <p>Email: {{ lost.Email|linebreaksbr }}</p>
+            <p>Age: {{ lost.Age|linebreaksbr }}</p>
+
+
+            <p>published: {{ lost.published_date }}</p>
+
+        </div>
+    {% endfor %}
+{% endblock %}

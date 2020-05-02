@@ -1,0 +1,14 @@
+{% extends 'clog/base2.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if lost.published_date %}
+            <div class="date">
+                {{ lost.published_date }}
+            </div>
+        {% endif %}
+        <a class="btn btn-default" href="{% url 'form_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <h2>{{ lost.Name }}</h2>
+        <p>{{ lost.Email|linebreaksbr }}</p>
+    </div>
+{% endblock %}
