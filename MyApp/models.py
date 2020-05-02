@@ -11,9 +11,14 @@ class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
+    image = models.ImageField(upload_to='image',blank=True, null=True,)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     views = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ('-published_date',)
+
     def publish(self):
         self.published_date = timezone.now()
         self.save()
