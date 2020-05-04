@@ -8,6 +8,12 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('title','text','image')
 
+
+class PostDeleteForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = []
+
 class CommentForm(forms.ModelForm):
 
     class Meta:

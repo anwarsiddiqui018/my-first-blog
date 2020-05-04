@@ -4,7 +4,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
 from django.db.models import F
 from .models import Post, Comment
-from .forms import PostForm, CommentForm
+from .forms import PostForm, PostDeleteForm, CommentForm
 from django.shortcuts import redirect
 from MyApp2.models import norm
 
@@ -39,7 +39,7 @@ def post_new(request):
 
     form = PostForm()
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -65,6 +65,19 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
+
+def post_remove(request, pk=None):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = PostDeleteForm(request.POST, instance=post)
+        if form.is_valid():
+            post.delete()
+            return redirect('/')
+    else:
+        form = PostDeleteForm(instance=post)
+    return render(request, 'blog/delete.html', {'form': form,'post': post,})
+
+
 def post_draft_list(request):
     posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
     return render(request, 'blog/post_draft_list.html', {'posts': posts})
@@ -78,10 +91,7 @@ def publish(self):
     self.published_date = timezone.now()
     self.save()
 
-def post_remove(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    post.delete()
-    return redirect('post_list')
+
 
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
