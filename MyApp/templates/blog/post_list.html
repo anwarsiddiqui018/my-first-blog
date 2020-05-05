@@ -6,7 +6,7 @@
             <div class="content container-fluid">
             	<div class="row"></div>
 
-            <h1><strong><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1></strong>
+            <h1><strong><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></strong></h1>
                 <div class="post">
                 {% if post.image %}
                     <a href="{{ post.image.url }}"><img src="{{ post.image.url}}" style="width: 300px" ></a>
