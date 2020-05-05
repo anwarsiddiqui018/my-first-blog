@@ -1,0 +1,86 @@
+
+h1 a, h2 a {
+    color: #5c73a1;
+    font-family: 'Lobster';
+}
+.body{
+    padding-left: 15px;
+    background-color: #5c73a1;
+}
+.page-header {
+    background-color: #e0dcdd;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: black;
+    font-size: 50pt;
+    text-decoration: none;
+    text-align: center;
+}
+.content {
+    margin-left: 50px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Lobster', cursive;
+}
+
+.date {
+    color: #828282;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: blue;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.post {
+    margin-bottom: 70px;
+
+}
+
+.post h2 a, .post h2 a:visited {
+    rgb(0, 0, 0)
+    color: 	#000000
+}
+.comment {
+    margin: 20px 0px 20px 20px;
+}
+
+
+.post h2{
+
+}
+
+
+
+.page-header, .menu {
+    list-style: none;
+    padding-left: 0;
+}
+
+.page-header, .menu li {
+    display: inline-block;
+}
+
+.menu  li  a {
+    text-decoration: none;
+    color: #000;
+    margin: 0 0.3em;
+}
+
+.menu  li  a.active {
+    padding-bottom: 0.3em;
+    border-bottom: 2px solid #528DEA;
+}
